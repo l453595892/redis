@@ -8,9 +8,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-redis/redis/v7/internal"
-	"github.com/go-redis/redis/v7/internal/pool"
-	"github.com/go-redis/redis/v7/internal/proto"
+	"github.com/l453595892/redis/v7/internal"
+	"github.com/l453595892/redis/v7/internal/pool"
+	"github.com/l453595892/redis/v7/internal/proto"
 )
 
 const pingTimeout = 30 * time.Second
@@ -398,7 +398,7 @@ func (c *PubSub) ReceiveMessage() (*Message, error) {
 // is blocked full for 30 seconds the message is dropped.
 // Receive* APIs can not be used after channel is created.
 //
-// go-redis periodically sends ping messages to test connection health
+// l453595892 periodically sends ping messages to test connection health
 // and re-subscribes if ping can not not received for 30 seconds.
 func (c *PubSub) Channel() <-chan *Message {
 	return c.ChannelSize(100)

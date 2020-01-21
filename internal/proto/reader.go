@@ -3,9 +3,10 @@ package proto
 import (
 	"bufio"
 	"fmt"
+	"github.com/l453595892/redis/v7/internal"
 	"io"
 
-	"github.com/go-redis/redis/v7/internal/util"
+	"github.com/l453595892/redis/v7/internal/util"
 )
 
 const (
@@ -58,6 +59,7 @@ func (r *Reader) ReadLine() ([]byte, error) {
 		return nil, err
 	}
 	if isNilReply(line) {
+		internal.Logger.Printf("line Message ============= %s",string(line))
 		return nil, Nil
 	}
 	return line, nil
