@@ -60,6 +60,7 @@ func (r *Reader) ReadLine() ([]byte, error) {
 	}
 	if isNilReply(line) {
 		internal.Logger.Printf("line Message ============= %s",string(line))
+		internal.Logger.Printf("Message 2 ======= %v",r)
 		return nil, Nil
 	}
 	return line, nil
