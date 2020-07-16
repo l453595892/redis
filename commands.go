@@ -101,6 +101,7 @@ type Cmdable interface {
 	SetBit(key string, offset int64, value int) *IntCmd
 	SetNX(key string, value interface{}, expiration time.Duration) *BoolCmd
 	SetXX(key string, value interface{}, expiration time.Duration) *BoolCmd
+	SetKEEPTTL(key string, value interface{}) *BoolCmd
 	SetRange(key string, offset int64, value string) *IntCmd
 	StrLen(key string) *IntCmd
 	HDel(key string, fields ...string) *IntCmd
@@ -790,7 +791,7 @@ func (c *cmdable) SetBit(key string, offset int64, value int) *IntCmd {
 func (c *cmdable) SetKEEPTTL(key string, value interface{}) *BoolCmd {
 	var cmd *BoolCmd
 	cmd = NewBoolCmd("set", key, value, "keepttl")
-	_ = c(cmd)
+	c.process(cmd)
 	return cmd
 }
 
