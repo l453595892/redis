@@ -785,6 +785,15 @@ func (c *cmdable) SetBit(key string, offset int64, value int) *IntCmd {
 	return cmd
 }
 
+// Redis `SET key value [KEEPTTL]` command.
+//
+func (c cmdable) SetKEEPTTL(key string, value interface{}) *BoolCmd {
+	var cmd *BoolCmd
+	cmd = NewBoolCmd("set", key, value, "keepttl")
+	_ = c(cmd)
+	return cmd
+}
+
 // Redis `SET key value [expiration] NX` command.
 //
 // Zero expiration means the key has no expiration time.
