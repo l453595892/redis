@@ -9,10 +9,10 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/go-redis/redis/internal"
-	"github.com/go-redis/redis/internal/consistenthash"
-	"github.com/go-redis/redis/internal/hashtag"
-	"github.com/go-redis/redis/internal/pool"
+	"github.com/l453595892/redis/internal"
+	"github.com/l453595892/redis/internal/consistenthash"
+	"github.com/l453595892/redis/internal/hashtag"
+	"github.com/l453595892/redis/internal/pool"
 )
 
 var errRingShardsDown = errors.New("redis: all ring shards are down")
