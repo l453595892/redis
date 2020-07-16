@@ -787,7 +787,7 @@ func (c *cmdable) SetBit(key string, offset int64, value int) *IntCmd {
 
 // Redis `SET key value [KEEPTTL]` command.
 //
-func (c cmdable) SetKEEPTTL(key string, value interface{}) *BoolCmd {
+func (c *cmdable) SetKEEPTTL(key string, value interface{}) *BoolCmd {
 	var cmd *BoolCmd
 	cmd = NewBoolCmd("set", key, value, "keepttl")
 	_ = c(cmd)
